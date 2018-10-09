@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +11,10 @@ namespace BouqetsOfRoses
         static void Main(string[] args)
         {
             
-            var firstNOK = 0;
-            var secondNOK = 0;
-            var finalNOK = 0;
-            var checkFinalNOK = 0;
+            var firstLCM = 0;
+            var secondLCM = 0;
+            var finalLCM = 0;
+            var checkFinalLCM = 0;
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
@@ -26,7 +26,7 @@ namespace BouqetsOfRoses
                 {
                     if ((n * j) % m == 0)
                     {
-                        firstNOK = n * j;
+                        firstLCM = n * j;
                         break;
                     }
                 }
@@ -37,7 +37,7 @@ namespace BouqetsOfRoses
                 {
                     if ((m * j) % n == 0)
                     {
-                        firstNOK = m * j;
+                        firstLCM = m * j;
                         break;
                     }
                 }
@@ -48,7 +48,7 @@ namespace BouqetsOfRoses
                 {
                     if ((k * j) % i == 0)
                     {
-                        secondNOK = k * j;
+                        secondLCM = k * j;
                         break;
                     }
                 }
@@ -59,50 +59,50 @@ namespace BouqetsOfRoses
                 {
                     if ((i * j) % k == 0)
                     {
-                        secondNOK = i * j;
+                        secondLCM = i * j;
                         break;
                     }
                 }
             }
            
-            if (firstNOK > secondNOK)
+            if (firstLCM > secondLCM)
             {
-                for (int j = 1; j <= secondNOK; j++)
+                for (int j = 1; j <= secondLCM; j++)
                 {
-                    if ((firstNOK * j) % secondNOK == 0)
+                    if ((firstLCM * j) % secondLCM == 0)
                     {
-                        finalNOK = firstNOK * j;
+                        finalLCM = firstLCM * j;
                         break;
                     }
                 }
             }
             else
             {
-                for (int j = 1; j <= firstNOK; j++)
+                for (int j = 1; j <= firstLCM; j++)
                 {
-                    if ((secondNOK * j) % firstNOK == 0)
+                    if ((secondLCM * j) % firstLCM == 0)
                     {
-                        finalNOK = secondNOK * j;
+                        finalLCM = secondLCM * j;
                         break;
                     }
                 }
             }
 
-            if (finalNOK % 2 == 0)
+            if (finalLCM % 2 == 0)
             {
                 if (p % 2 == 1)
                 {
                     for (int j = 1; j < p; j++)
                     {
-                        if ((finalNOK * j + 1) % p == 0)
+                        if ((finalLCM * j + 1) % p == 0)
                         {
-                            checkFinalNOK = finalNOK * j + 1;
-                            Console.WriteLine(checkFinalNOK);
+                            checkFinalLCM = finalLCM * j + 1;
+                            Console.WriteLine(checkFinalLCM);
                             break;
                         }
                     }
                 }
-                else if(checkFinalNOK==0)
+                else if(checkFinalLCM==0)
                 {
                     Console.WriteLine("There isn't minimal number of roses");
                 }
@@ -111,14 +111,14 @@ namespace BouqetsOfRoses
             {
                 for (int j = 1; j < p; j++)
                 {
-                    if ((finalNOK * j + 1) % p == 0)
+                    if ((finalLCM * j + 1) % p == 0)
                     {
-                        checkFinalNOK = finalNOK * j + 1;
-                        Console.WriteLine(checkFinalNOK);
+                        checkFinalLCM = finalLCM * j + 1;
+                        Console.WriteLine(checkFinalLCM);
                         break;
                     }
                 }
-                if (checkFinalNOK == 0)
+                if (checkFinalLCM == 0)
                 {
                     Console.WriteLine("There isn't minimal number of roses");
                 }
